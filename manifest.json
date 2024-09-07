@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "电子木鱼",
+  "version": "1.0",
+  "description": "一个可以悬浮在屏幕任意位置的电子木鱼Chrome插件",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "电子木鱼",
+    "default_icon": {
+      "16": "woodfish.png",
+      "32": "woodfish.png",
+      "48": "woodfish.png",
+      "128": "woodfish.png"
+    }
+  },
+  "icons": {
+    "16": "woodfish.png",
+    "32": "woodfish.png",
+    "48": "woodfish.png",
+    "128": "woodfish.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": [
+      "woodfish.html",
+      "woodfish.js",
+      "woodfish.css",
+      "woodfish.png",
+      "hit.mp3"
+    ],
+    "matches": ["<all_urls>"]
+  }]
+}
